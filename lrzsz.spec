@@ -1,7 +1,7 @@
 Summary: The lrz and lsz modem communications programs
 Name: lrzsz
 Version: 0.12.20
-Release: 33%{?dist}
+Release: 36%{?dist}
 License: GPLv2+
 Group: Applications/Communications
 Source: http://www.ohse.de/uwe/releases/%{name}-%{version}.tar.gz
@@ -9,6 +9,7 @@ Patch1: lrzsz-0.12.20-glibc21.patch
 Patch2: lrzsz-0.12.20.patch
 Patch3: lrzsz-0.12.20-man.patch
 Patch4: lrzsz-0.12.20-aarch64.patch
+Patch5: lrzsz-0.12.20-noftime.patch
 Url: http://www.ohse.de/uwe/software/lrzsz.html
 BuildRequires: gettext
 
@@ -25,6 +26,7 @@ copylefted Zmodem solution for Linux systems.
 %patch2 -p1 -b .crc
 %patch3 -p1 -b .man
 %patch4 -p1 -b .aarch64
+%patch5 -p1 -b .noftime
 
 rm -f po/*.gmo
 
@@ -44,6 +46,15 @@ make %{?_smp_mflags}
 %{_mandir}/*/*
 
 %changelog
+* Wed Feb 12 2014 Miroslav Lichvar <mlichvar@redhat.com> 0.12.20-36
+- fix building on ppc (#1064347)
+
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 0.12.20-35
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 0.12.20-34
+- Mass rebuild 2013-12-27
+
 * Tue Mar 26 2013 Miroslav Lichvar <mlichvar@redhat.com> 0.12.20-33
 - use recent config.sub and config.guess for aarch64 (#926093)
 - remove obsolete macros

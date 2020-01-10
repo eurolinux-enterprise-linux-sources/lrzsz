@@ -1,0 +1,11 @@
+diff -up lrzsz-0.12.20/configure.noftime lrzsz-0.12.20/configure
+--- lrzsz-0.12.20/configure.noftime	1998-12-30 08:50:18.000000000 +0100
++++ lrzsz-0.12.20/configure	2014-02-12 17:19:22.489723064 +0100
+@@ -3472,6 +3472,7 @@ else
+ #include <stdio.h>
+ main ()
+ {
++  exit(1);
+   struct timeb s, slast;
+   int c = 0;
+   ftime (&slast);
